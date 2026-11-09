@@ -175,16 +175,20 @@ export default function Home() {
       return element;
     };
 
+    const shareImage = document.head.querySelector<HTMLMetaElement>(
+      "meta[property='og:image:secure_url']",
+    )?.content || assets.hero;
+
     ensureMeta("description").content = content.seo.description;
     ensureMeta("keywords").content = content.seo.keywords;
     ensureMeta("og:title", "property").content = content.seo.title;
     ensureMeta("og:description", "property").content = content.seo.description;
     ensureMeta("og:type", "property").content = "website";
-    ensureMeta("og:image", "property").content = assets.hero;
+    ensureMeta("og:image", "property").content = shareImage;
     ensureMeta("twitter:card", "name").content = "summary_large_image";
     ensureMeta("twitter:title", "name").content = content.seo.title;
     ensureMeta("twitter:description", "name").content = content.seo.description;
-    ensureMeta("twitter:image", "name").content = assets.hero;
+    ensureMeta("twitter:image", "name").content = shareImage;
   }, [content]);
 
   useEffect(() => {
