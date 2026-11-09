@@ -1,0 +1,6 @@
+{
+  "origin": "https://gtsgolf-tw.com",
+  "routes": [
+    { "path": "/" }
+  ]
+}
